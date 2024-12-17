@@ -33,7 +33,7 @@ def get_urls_from_excel(file_path, target_name="李"): #担当者の名前
 
 def main():
     # Input Excelファイルのパス
-    excel_file_path = r"C:\Users\L1003613honbu048\Documents\業務\メモ\ピクチャー\QC活動\セミナー研修検討リスト.xlsx"  # 여기에 URL 목록이 있는 엑셀 파일 경로를 넣어주세요
+    excel_file_path = r"C:\Users\L1003613honbu048\Documents\業務\メモ\ピクチャー\QC活動\セミナー研修検討リスト.xlsx"  # ここにURLリストのあるExcelファイルのパスを入れていただけますか
 
     # ExcelからURLリストを読み込む
     url_list = get_urls_from_excel(excel_file_path)
