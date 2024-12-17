@@ -4,11 +4,11 @@ from InputExcel import save_to_excel  # InputExcel.pyからExcelに保存する�
 import openpyxl
 
 
-def get_urls_from_excel(file_path, target_name="李"):
+def get_urls_from_excel(file_path, target_name="李"): #担当者の名前
     """ExcelファイルからURLリストを読み込んで返す関数(A列で名前をフィルタリングした後、URLを抽出)"""
     urls = []
     try:
-        # Excel 파일 열기
+        # Excel ファイルを開く
         wb = openpyxl.load_workbook(file_path)
         ws = wb.active
 
@@ -21,10 +21,10 @@ def get_urls_from_excel(file_path, target_name="李"):
             elif name_cell.value != target_name:
                 continue
 
-        print("추출된 URL 목록:", urls)  # URL リストを出力して上手く抽出されるか確認
+        print("抽出されたURLリスト:", urls)  # URL リストを出力して上手く抽出されるか確認
         return urls
     except Exception as e:
-        print(f"Excel 파일 읽기 중 에러 발생: {e}")
+        print(f"Excelファイルの読み取り中にエラーが発生します: {e}")
         return []
 
 
