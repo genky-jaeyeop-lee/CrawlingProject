@@ -14,7 +14,7 @@ def crawl_course_details(url):
     soup = BeautifulSoup(response.text, 'html.parser')
 
     # コース概要 を探してクローリング
-    course_outline = soup.find('tr', {'id': 'courseDetailLearnDetail_trOutline'})  # 'コース概要'가 포함된 tr
+    course_outline = soup.find('tr', {'id': 'courseDetailLearnDetail_trOutline'})  # 'コース概要'を含むtrタグ
     if course_outline:
         course_overview = course_outline.find_all('td', {'class': 'BOTTOMLINNER2 border-box-course-detail'})
         if course_overview:
