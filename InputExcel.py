@@ -5,25 +5,25 @@ import os
 
 def save_to_excel(data, file_path):
     try:
-        # 파일 경로가 없으면 새로 생성
+        # ファイル パスがない場合は、新たに作成します
         if not os.path.exists(file_path):
-            wb = openpyxl.Workbook()  # 새 엑셀 워크북 생성
+            wb = openpyxl.Workbook()  # 新しいエクセルワークブック作成
         else:
-            wb = openpyxl.load_workbook(file_path)  # 기존 워크북 열기
+            wb = openpyxl.load_workbook(file_path)  # 既存ワークブック開く
 
         ws = wb.active
 
-        # 첫 번째 행에 제목 추가 (제목이 없으면 추가)
+        # 最初の行にタイトルを追加（タイトルがなければ追加）
         if ws.max_row == 1:
             ws.append(["コース概要"])
 
-        # 크롤링한 데이터를 엑셀에 추가
+        # クローリングしたデータをエクセルに追加します
         for item in data:
             ws.append([item.get("コース概要", "N/A")])
 
-        # 엑셀 파일 저장
+        # Excelファイル保存
         wb.save(file_path)
-        print(f"Excel 파일이 성공적으로 업데이트되었습니다: {file_path}")
+        print(f"Excelファイルが正常にアップデートされました: {file_path}")
 
     except Exception as e:
-        print(f"Excel 업데이트 중 에러 발생: {e}")
+        print(f"Excelアップデート中にエラーが発生します: {e}")
